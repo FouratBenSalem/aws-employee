@@ -44,6 +44,7 @@ def insert():
         
         try:
             filename = image.filename
+            filename = secure_filename(filename)
             print("Inserting data to MySQL RDS.. uploading image to S3 Bucket..")
             """Upload a file to an S3 bucket
 
@@ -78,5 +79,5 @@ def insert():
     
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0", debug=True)
-
+    #app.run(host="0.0.0.0", debug=True)
+    app.run(host="localhost",debug=True)
