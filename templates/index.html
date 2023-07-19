@@ -10,79 +10,100 @@
 </head>
 
 <body>
-
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../static/logo.png" width="30" height="24" alt="Logo" class="d-inline-block align-text-top">
+                AWS Project - RDS - EC2 - S3
+            </a>
+        </div>
+    </nav>
+<div class="container">
+    <h4>{{msg}}</h4>
+</div>
     <div class="container">
+
         <h4>Fill the form</h4>
         <p>The form below will store the details in an AWS RDS using MySQL and your image in a S3 Bucket</p>
         <form action="/insert" method="POST" enctype="multipart/form-data">
-            
+
             <div class="form-group">
                 <label for="fname">First Name:</label>
-                <input name="fname" type="text" class="form-control" id="fname">
+                <input name="fname" type="text" class="form-control" id="fname" required>
             </div>
             <div class="form-group">
                 <label for="lname">Last Name:</label>
-                <input name="lname" type="text" class="form-control" id="lname">
+                <input name="lname" type="text" class="form-control" id="lname" required>
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
-                <input name="phone" type="phone" class="form-control" id="phone">
+                <input name="phone" type="phone" class="form-control" id="phone" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input name="email" type="email" class="form-control" id="email">
+                <input name="email" type="email" class="form-control" id="email" required>
             </div>
             <div class="form-group">
                 <label for="pri_skill">Primary Skill:</label>
-                <input name="pri_skill" type="text" class="form-control" id="pri_skill">
+                <input name="pri_skill" type="text" class="form-control" id="pri_skill" required>
             </div>
             <div class="form-group">
                 <label for="location">Location:</label>
-                <input name="location" type="text" class="form-control" id="location">
+                <input name="location" type="text" class="form-control" id="location" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="image">Upload Image:</label>
-                <input name="file" type="file" class="form-control" id="image" value="file">
+                <input name="file" type="file" class="form-control" id="image" value="file" required>
             </div>
 
             <br>
             <input type="submit" name="submit" value="Submit" class="btn btn-success">
         </form>
     </div>
+    <div class="container">
         <hr>
 
         <h4>The details are</h4>
-        <div class="container">
-            <table id="data" class="table table-striped">
-                <thead>
-                  <tr>
+        <hr>
+    </div>
+    <div class="container">
+        <table id="data" class="table table-striped">
+            <thead>
+                <tr>
                     <th>Id</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Primary Skill</th>
+                    <th>Email</th>
+                    <th>Phone</th>
                     <th>Location</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for employee in employees %}
-                    <tr>
-                      <td>{{ employee[0] }}</td>
-                      <td>{{ employee[1] }}</td>
-                      <td>{{ employee[2] }}</td>
-                      <td>{{ employee[3] }}</td>
-                      <td>{{ employee[4] }}</td>
-                      <td>{{ employee[5] }}</td>
-                      <td>{{ employee[6] }}</td>
-                      <td>{{ employee[7] }}</td>
-                    </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-        </div>
-        
+                    <th>Primary Skill</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                <tr>
+                    <td>{{ employee[0] }}</td>
+                    <td>{{ employee[1] }}</td>
+                    <td>{{ employee[2] }}</td>
+                    <td>{{ employee[3] }}</td>
+                    <td>{{ employee[4] }}</td>
+                    <td>{{ employee[5] }}</td>
+                    <td>{{ employee[6] }}</td>
+                    <td>{{ employee[7] }}</td>
+                    <td><button class="btn btn-danger">Delete</button>   <button class="btn btn-info">Update</button></td>
 
-    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br><br><br><hr>
+    </div>
+
+
+
 
 </body>
 

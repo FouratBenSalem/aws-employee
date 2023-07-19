@@ -24,3 +24,8 @@ def get_details():
     details = cur.fetchall()
     return details
 
+def update(id, fname, lname,pri_skill,location, phone, email, image=""):
+    cur = db_conn.cursor()
+    cur.execute("update employee set fname=%s, lname=%s, pri_skill=%s,location=%s, phone=%s, email=%s, image=%s where empid=%s", (fname, lname,pri_skill,location, phone, email, image,id))
+    db_conn.commit()
+

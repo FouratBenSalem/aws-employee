@@ -76,7 +76,7 @@ def insert():
         
         employees = db.get_details()
         
-        return render_template('index.html', employees = employees)
+        return render_template('index.html', employees = employees, msg='Employee added to RDS database, image uploaded to S3')
     
 
 if __name__=="__main__":
