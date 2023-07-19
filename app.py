@@ -45,6 +45,7 @@ def insert():
         try:
             filename = image.filename
             filename = secure_filename(filename)
+            image.save(filename)
             print("Inserting data to MySQL RDS.. uploading image to S3 Bucket..")
             """Upload a file to an S3 bucket
 
